@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Liste des paintgap</title>
+<style type="text/css">
+  .titreApplication
+  {
+    color:white;
+    background-color:grey;
+    text-align:center;
+  }
+  
+  .listePaintGap
+  {
+    padding:0;
+    text-align:center;
+    list-style-type:none;
+  }
+  
+  .itemPaintGap
+  {
+    padding:0.5rem;
+    margin-bottom:0.3rem;
+    background-color:black;
+  }
+
+  .itemPaintGap:hover
+  {
+    background-color:pink;
+  }
+  
+  .lienPaintGap
+  {
+    color:white;
+    text-decoration:none;
+  }
+  
+  
+  
+</style>
+  <script type="text/javascript" charset="utf-8" src="lib/cordova.js"></script>
+  <script type="text/javascript" charset="utf-8" src="lib/jquery.js"></script>
+</head>
+<body>
+
+  Oups ! Une erreure est survenue...
+  
+  <script type="text/html" id="page-liste-paintgap"> 	
+    <h1 class="titreApplication">Liste de paintgap</h1>
+    <ul class="listePaintGap" id="liste-paintgap"></ul>
+    <a href="#ajouter-paintgap/{ID}">Ajouter un PaintGap</a>
+  </script>
+
+  <!-- TODO: faire item-liste-paintgapx -->
+  <script type="text/html" id="item-liste-paintgap"> 
+    <li class='itemPaintGap'>
+      <a class='lienPaintGap' href='#paintgap/{ID}'>
+      {NOM}
+      </a>
+    </li>
+  </script>
+  
+  <script type="text/html" id="page-paintgap"> 	
+    <h1 id="paintgap-nom">{NOM}</h1>
+    <p id="paintgap-description">{DESCRIPTION}</p>
+    <!-- href modifier -->
+    <a href="#">Retour à la liste</a>
+    <a href="#modifier-paintgap/{ID}">Modifier une paintgap</a>
+  </script>
+
+  <script type="text/html" id="page-ajouter-paintgap"> 	
+    <form id = "formulaire-ajouter">
+      <label for="paintgap-nom">Nom</label>
+      <input type="text" id="paintgap-nom"/>
+      
+      
+      <label for="paintgap-description">Description</label>
+      <textarea id="paintgap-description"></textarea>
+      
+      <input type="submit" value="Ajouter"/>
+    </form>
+    <a href="#">Retour à la liste sans ajouter</a>
+  </script>
+
+  <script type="text/html" id="page-modifier-paintgap">   
+    <form id = "formulaire-modifier">
+
+      <label for="paintgap-nom">NOM</label>
+      <input type="text" id="paintgap-nom" value="{NOM}" />
+
+      
+      <label for="paintgap-description">DESCRIPTION</label>
+      <input id="paintgap-description" value="{DESCRIPTION}"/>
+      
+      <input type="submit" value="modifier"/>
+    </form>
+    <a href="#">Retour à la liste sans modifier</a>
+  </script>
+
+  
+  <script src="modele/PaintGap.js"></script>
+  <script src="donnees/PaintGapDAO.js"></script> 
+    <script src="vue/ModifierPaintGapVue.js"></script>
+  <script src="vue/AjouterPaintGapVue.js"></script>
+  <script src="vue/PaintGapVue.js"></script>
+  <script src="vue/ListePaintGapVue.js"></script>
+  <script src="application.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

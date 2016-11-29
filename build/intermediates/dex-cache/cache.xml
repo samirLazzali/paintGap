@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\libs\cordova-2.9.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="1c00db30c9cdad3676aeefd78e37b716364b5259">
+        <dex dex="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\transforms\dex\debug\folders\1000\2\cordova-2.9.0_b8b37f71f04dcabc4b83aea714c064aee5bb6a02\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="45f5eda279825ff470e3f51019d374d1ef61e000">
+        <dex dex="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.0_a573b1c6c09f2e14d0b3308ef658d071332692dd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.0\jars\libs\internal_impl-24.2.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="032a4b53def5e2ceedfc2e793b126c0163cfa1dd">
+        <dex dex="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.0_8c9a45bd6fbb24e8f0e5dbaf085d925d123666bb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="c3c638be6e650b165ab9ae144857b64e82787fad">
+        <dex dex="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.0_00aae53df43aac4086f80409db2ea4a1d5a87b5f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\jars\libs\internal_impl-24.2.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="045be695d968dd707691cc55d23746dbf8cf569a">
+        <dex dex="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.0_05e5e8d542f4183c9d93066b148f8d50cae9dc8f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\jars\libs\internal_impl-24.2.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="60d7b23621d31e6f42f4f76f16af467e57a20cda">
+        <dex dex="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.0_7b3b09881425ced317a82db6da3bda23a68c95e7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="d8bd2268fdcbfd52c76ade65d9900cd8def93a44">
+        <dex dex="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-24.2.0_5a91c698f50f6459ace31f4b1729698a364a6476\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="c84e216d9bf618464d6b9564d71d9a656433e7c4">
+        <dex dex="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.0_0abc7913d2f919a85d3f6a1fabc8ad151cb7490b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="6eb9107eb34d2fe2b020662b7fbbec991dcba846">
+        <dex dex="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.0_ce518c87ea6a3ee249366c2bc9c7f0b731642230\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="fcc945a86ebcbf527429acb8216ec7dae2c06417">
+        <dex dex="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.0_b602f12e4c6f3494da259bee1f24b7c0d2e1e861\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.0\jars\libs\internal_impl-24.2.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="6e02e34594ebe9c0501ffda8dd48497f81b82977">
+        <dex dex="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.0_ab829d89df914368b5e40c93526f87caf0831205\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\1634836\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.0\support-annotations-24.2.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="6be858a75633b1f0a2d24cad740db57775cb6871">
+        <dex dex="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.2.0_6faa1da38adab56d29c529de42e44a613a8a1ddf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\jars\libs\internal_impl-24.2.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="771b3cc0e597b54da25f8086ba73180c59c6bc71">
+        <dex dex="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.0_47ab0b42fa361e83623bb57c811abc1ead9c3264\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="47b0f6325804f762dcfab58253f1c88f0f3bf7b0">
+        <dex dex="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_ab5d5e71baede645649fd0488f215b033c0cbbc7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="beac40bcc8a320a896dd15f5109cfcaea5e1e0e3">
+        <dex dex="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.0_e7847298677104212e694ed60178352ca560dcc6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="f3ee23ef25c9a8fe3d40246d0b7097267963a612">
+        <dex dex="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.2.0_d32cc8c3d0793cc78d4e17f3d6e9c773bb81b946\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="f9b41622897665678d31d78e57a361cb0cebcb0d">
+        <dex dex="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-24.2.0_708e18453e2398f3897f56437cb838b7f2930fb5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="d70878e6f74c4b6ef4135fe6158b620ac5519a58">
+        <dex dex="C:\Users\1634836\AndroidStudioProjects\PaintGap\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_c258da0b4b9c4140490bf6d3a648042ff644c709\classes.dex" />
+    </item>
+
+</items>
