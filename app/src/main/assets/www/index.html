@@ -1,119 +1,165 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-<title>Liste des paintgap</title>
-<style type="text/css">
-  .titreApplication
-  {
-    color:white;
-    background-color:grey;
-    text-align:center;
-  }
-  
-  .listePaintGap
-  {
-    padding:0;
-    text-align:center;
-    list-style-type:none;
-  }
-  
-  .itemPaintGap
-  {
-    padding:0.5rem;
-    margin-bottom:0.3rem;
-    background-color:black;
-  }
-
-  .itemPaintGap:hover
-  {
-    background-color:pink;
-  }
-  
-  .lienPaintGap
-  {
-    color:white;
-    text-decoration:none;
-  }
-  
-  
-  
+var ajouterPaintGapVue = function() { this.afficher = function(actionAjouterPaintGap) { $("body").html(ajouterPaintGapVue.html); $("#formulaire-ajouter").on("submit", $.proxy(this.ajouterPaintGap, this)); this.actionAjouterPaintGap = actionAjouterPaintGap;
+} this.ajouterPaintGap = function() { var nom = $("#paintgap-nom").val(); var description = $("#paintgap-description").val(); var paintgap = new PaintGap(id = null, nom, description); this.actionAjouterPaintGap(paintgap); window.location.hash = ""; event.preventDefault();
+} } ajouterPaintGapVue.html = $("#page-ajouter-paintgap").html(); .lienPaintGap { color: white; text-decoration: none; }
 </style>
-  <script type="text/javascript" charset="utf-8" src="lib/cordova.js"></script>
-  <script type="text/javascript" charset="utf-8" src="lib/jquery.js"></script>
+<!--<script type="text/javascript" charset="utf-8" src="lib/cordova.js"></script>-->
+<script type="text/javascript" charset="utf-8" src="lib/jquery.js"></script>
+<script src="lib\easeljs-0.7.0.min.js"></script>
+<script>
+    var stage, label, shape, oldX, oldY, size, color, image;
+
+    function init() {
+        stage = new createjs.Stage("demoCanvas");
+        stage.enableDOMEvents(true);
+        createjs.Touch.enable(stage);
+        label = new createjs.Text("Zone de dessin", "24px Arial");
+        label.x = label.y = 0;
+
+        image = new createjs.Bitmap();
+        stage.addChild(image);
+
+        shape = new createjs.Shape();
+        stage.addChild(shape, label);
+
+        // set up our defaults:
+        color = "#0FF";
+        size = 2;
+
+        // add handler for stage mouse events:
+        stage.on("stagemousedown", function(event) {
+            size = 10;
+        })
+
+        stage.on("touchstart", function(event) {
+            size = 10;
+        })
+
+        stage.on("stagemouseup", function(event) {
+            color = createjs.Graphics.getHSL(Math.random() * 360, 100, 50);
+            size = 2;
+        })
+
+        stage.on("touchend", function(event) {
+            color = createjs.Graphics.getHSL(Math.random() * 360, 100, 50);
+            size = 2;
+        })
+
+
+        stage.on("stagemousemove", function(evt) {
+            if (oldX) {
+                shape.graphics.beginStroke(color)
+                    .setStrokeStyle(size, "round")
+                    .moveTo(oldX, oldY)
+                    .lineTo(evt.stageX, evt.stageY);
+                stage.update();
+            }
+            oldX = evt.stageX;
+            oldY = evt.stageY;
+        })
+
+        stage.on("touchmove", function(evt) {
+            if (oldX) {
+                shape.graphics.beginStroke(color)
+                    .setStrokeStyle(size, "round")
+                    .moveTo(oldX, oldY)
+                    .lineTo(evt.stageX, evt.stageY);
+                stage.update();
+            }
+            oldX = evt.stageX;
+            oldY = evt.stageY;
+        })
+
+        stage.update();
+    }
+
+    function Sauvegarder() {
+        $("#image").attr('src', stage.toDataURL());
+    }
+</script>
 </head>
-<body>
 
-  Oups ! Une erreure est survenue...
-  
-  <script type="text/html" id="page-liste-paintgap"> 	
-    <h1 class="titreApplication">Liste de paintgap</h1>
-    <ul class="listePaintGap" id="liste-paintgap"></ul>
-    <a href="#ajouter-paintgap/{ID}">Ajouter un PaintGap</a>
-  </script>
+<body onload="init();" onloadstart="init();">
 
-  <!-- TODO: faire item-liste-paintgapx -->
-  <script type="text/html" id="item-liste-paintgap"> 
-    <li class='itemPaintGap'>
-      <a class='lienPaintGap' href='#paintgap/{ID}'>
+    Oups ! Une erreure est survenue...
+
+    <script type="text/html" id="page-liste-paintgap">
+        <h1 class="titreApplication">Liste de paintgap</h1>
+        <ul class="listePaintGap" id="liste-paintgap"></ul>
+        <a href="#ajouter-paintgap/{ID}">Ajouter un PaintGap</a>
+    </script>
+
+    <!-- TODO: faire item-liste-paintgapx -->
+    <script type="text/html" id="item-liste-paintgap">
+        <li class='itemPaintGap'>
+            <a class='lienPaintGap' href='#paintgap/{ID}'>
       {NOM}
       </a>
-    </li>
-  </script>
-  
-  <script type="text/html" id="page-paintgap"> 	
-    <h1 id="paintgap-nom">{NOM}</h1>
-    <p id="paintgap-description">{DESCRIPTION}</p>
-    <!-- href modifier -->
-    <a href="#">Retour à la liste</a>
-    <a href="#modifier-paintgap/{ID}">Modifier une paintgap</a>
-  </script>
+        </li>
+    </script>
 
-  <script type="text/html" id="page-ajouter-paintgap"> 	
-    <form id = "formulaire-ajouter">
-      <label for="paintgap-nom">Nom</label>
-      <input type="text" id="paintgap-nom"/>
-      
-      
-      <label for="paintgap-description">Description</label>
-      <textarea id="paintgap-description"></textarea>
-      
-      <input type="submit" value="Ajouter"/>
+    <script type="text/html" id="page-paintgap">
+        <h1 id="paintgap-nom">{NOM}</h1>
+        <p id="paintgap-description">{DESCRIPTION}</p>
+        <!-- href modifier -->
+        <a href="#">Retour à la liste</a>
+        <a href="#modifier-paintgap/{ID}">Modifier une paintgap</a>
+    </script>
+
+    <script type="text/html" id="page-modifier-paintgap">
+        <form id="formulaire-modifier">
+
+            <label for="paintgap-nom">NOM</label>
+            <input type="text" id="paintgap-nom" value="{NOM}" />
+
+
+            <label for="paintgap-description">DESCRIPTION</label>
+            <input id="paintgap-description" value="{DESCRIPTION}" />
+
+            <input type="submit" value="modifier" />
+        </form>
+        <a href="#">Retour à la liste sans modifier</a>
+    </script>
+
+    <script type="text/html" id="page-ajouter-paintgap" onload="init();">
+        <button onclick="init();">Commencer à dessiner</button>
+        <canvas id="demoCanvas" width="500" height="500">
+          alternate content
+        </canvas>
+        <img src="" id="image" />
+        <form id="formulaire-ajouter">
+            <label for="paintgap-nom">Nom</label>
+            <input type="text" id="paintgap-nom" />
+            <label for="paintgap-description">Description</label>
+            <textarea id="paintgap-description"></textarea>
+            <input type="submit" value="Ajouter" />
+        </form>
+        <button onclick="Sauvegarder();">Sauvegarder</button>
+        <a href="#">Retour à la liste sans ajouter</a>
+    </script>
+
+
+
+    <form id="formulaire-ajouter">
+        <label for="paintgap-nom">Nom</label>
+        <input type="text" id="paintgap-nom" />
+
+
+        <label for="paintgap-description">Description</label>
+        <textarea id="paintgap-description"></textarea>
+
+        <input type="submit" value="Ajouter" />
+        <button onclick="Sauvegarder();">Sauvegarder</button>
     </form>
     <a href="#">Retour à la liste sans ajouter</a>
-  </script>
 
-  <script type="text/html" id="page-modifier-paintgap">   
-    <form id = "formulaire-modifier">
 
-      <label for="paintgap-nom">NOM</label>
-      <input type="text" id="paintgap-nom" value="{NOM}" />
-
-      
-      <label for="paintgap-description">DESCRIPTION</label>
-      <input id="paintgap-description" value="{DESCRIPTION}"/>
-      
-      <input type="submit" value="modifier"/>
-    </form>
-    <a href="#">Retour à la liste sans modifier</a>
-  </script>
-
-  
-  <script src="modele/PaintGap.js"></script>
-  <script src="donnees/PaintGapDAO.js"></script> 
+    <script src="modele/PaintGap.js"></script>
+    <script src="donnees/PaintGapDAO.js"></script>
     <script src="vue/ModifierPaintGapVue.js"></script>
-  <script src="vue/AjouterPaintGapVue.js"></script>
-  <script src="vue/PaintGapVue.js"></script>
-  <script src="vue/ListePaintGapVue.js"></script>
-  <script src="application.js"></script>
+    <script src="vue/AjouterPaintGapVue.js"></script>
+    <script src="vue/PaintGapVue.js"></script>
+    <script src="vue/ListePaintGapVue.js"></script>
+    <script src="application.js"></script>
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
