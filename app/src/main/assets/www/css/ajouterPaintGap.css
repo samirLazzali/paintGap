@@ -1,0 +1,63 @@
+.titreAjouter{
+    color:#333;
+    text-align:center;
+}
+.formAjout{
+    height : 50rem;
+    padding:0;
+    text-align:center;
+    list-style-type:none;
+    width: 25rem;
+    margin: 1rem auto;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    border : 1px solid #ccc;
+}
+
+label{
+    height : 1rem;
+    display: inline-block;
+    margin: 1rem;
+    font-size: 1.5rem;
+    text-align:center;
+    cursor: pointer;
+}
+
+input[type=text], textarea, select {
+    width: 20rem;
+    height : 1rem;
+    padding: 1rem 1rem;
+    margin: 1.5rem 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 20rem;
+    background-color: #4CAF50;
+    color: white;
+    padding: 1rem 1rem;
+    margin: 1rem auto;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.espaceDessin{
+    width: 23rem;
+    height : 23rem;
+    background-color : white;
+}
+.retour{
+    text-align:center;
+    width: 20rem;
+    background-color: #961010;
+    color: white;
+    padding: 1rem 1rem;
+    margin: 1rem auto;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}

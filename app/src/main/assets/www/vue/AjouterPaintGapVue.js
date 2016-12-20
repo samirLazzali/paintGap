@@ -3,21 +3,33 @@ var ajouterPaintGapVue = function() {
     this.afficher = function(actionAjouterPaintGap) {
         $("body").html(ajouterPaintGapVue.html);
 
-        $("#formulaire-ajouter").on("submit", $.proxy(this.ajouterPaintGap, this));
+        $("#formulaireAjouter").on("submit", $.proxy(this.ajouterPaintGap, this));
 
         this.actionAjouterPaintGap = actionAjouterPaintGap;
 
+        $('.topbarjs').click(this.topBar);
     }
 
+    this.topBar = function (){
+             var x = document.getElementById("myTopnav");
+             if (x.className === "topnav") {
+                 x.className += " responsive";
+             } else {
+                 x.className = "topnav";
+             }
+
+      }
+
+
     this.ajouterPaintGap = function() {
-        var nom = $("#paintgap-nom").val();
-        var description = $("#paintgap-description").val();
-        var paintgap = new PaintGap(id = null, nom, description);
+        var nom = $("#paintgapNom").val();
+        var description = $("#paintgapDescription").val();
+        var paintgap = new PaintGap(id = null, nom, description , leUri());
         this.actionAjouterPaintGap(paintgap);
 
         window.location.hash = "";
         event.preventDefault();
-
     }
+
 }
-ajouterPaintGapVue.html = $("#page-ajouter-paintgap").html();
+ajouterPaintGapVue.html = $("#pageAjouterPaintgap").html();

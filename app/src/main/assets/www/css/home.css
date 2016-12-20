@@ -1,0 +1,14 @@
+*{
+	font-family:'Open Sans',Arial,sans-serif;
+}
+
+.titreApplication{
+    color:#333;
+    text-align:center;
+}
+
+.boutonAjouter{
+    border : 1px solid red;
+    position:fixed;
+    bottom:0px;
+}

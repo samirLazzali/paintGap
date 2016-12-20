@@ -1,165 +1,158 @@
-var ajouterPaintGapVue = function() { this.afficher = function(actionAjouterPaintGap) { $("body").html(ajouterPaintGapVue.html); $("#formulaire-ajouter").on("submit", $.proxy(this.ajouterPaintGap, this)); this.actionAjouterPaintGap = actionAjouterPaintGap;
-} this.ajouterPaintGap = function() { var nom = $("#paintgap-nom").val(); var description = $("#paintgap-description").val(); var paintgap = new PaintGap(id = null, nom, description); this.actionAjouterPaintGap(paintgap); window.location.hash = ""; event.preventDefault();
-} } ajouterPaintGapVue.html = $("#page-ajouter-paintgap").html(); .lienPaintGap { color: white; text-decoration: none; }
-</style>
-<!--<script type="text/javascript" charset="utf-8" src="lib/cordova.js"></script>-->
-<script type="text/javascript" charset="utf-8" src="lib/jquery.js"></script>
-<script src="lib\easeljs-0.7.0.min.js"></script>
-<script>
-    var stage, label, shape, oldX, oldY, size, color, image;
+<!DOCTYPE HTML>
+<html>
+<head>
 
-    function init() {
-        stage = new createjs.Stage("demoCanvas");
-        stage.enableDOMEvents(true);
-        createjs.Touch.enable(stage);
-        label = new createjs.Text("Zone de dessin", "24px Arial");
-        label.x = label.y = 0;
-
-        image = new createjs.Bitmap();
-        stage.addChild(image);
-
-        shape = new createjs.Shape();
-        stage.addChild(shape, label);
-
-        // set up our defaults:
-        color = "#0FF";
-        size = 2;
-
-        // add handler for stage mouse events:
-        stage.on("stagemousedown", function(event) {
-            size = 10;
-        })
-
-        stage.on("touchstart", function(event) {
-            size = 10;
-        })
-
-        stage.on("stagemouseup", function(event) {
-            color = createjs.Graphics.getHSL(Math.random() * 360, 100, 50);
-            size = 2;
-        })
-
-        stage.on("touchend", function(event) {
-            color = createjs.Graphics.getHSL(Math.random() * 360, 100, 50);
-            size = 2;
-        })
+    <script type="text/javascript" charset="utf-8" src="lib/cordova.js"></script>
+    <script type="text/javascript" src="lib/jquery.js"></script>
+    <script type="text/javascript" src="lib/easeljs-0.7.0.min.js"></script>
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="css/topbar.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/ajouterPaintGap.css">
+    <link rel="stylesheet" type="text/css" href="css/details.css">
+    <link rel="stylesheet" type="text/css" href="css/modifier.css">
+    <link rel="stylesheet" type="text/css" href="css/home.css">
 
 
-        stage.on("stagemousemove", function(evt) {
-            if (oldX) {
-                shape.graphics.beginStroke(color)
-                    .setStrokeStyle(size, "round")
-                    .moveTo(oldX, oldY)
-                    .lineTo(evt.stageX, evt.stageY);
-                stage.update();
-            }
-            oldX = evt.stageX;
-            oldY = evt.stageY;
-        })
 
-        stage.on("touchmove", function(evt) {
-            if (oldX) {
-                shape.graphics.beginStroke(color)
-                    .setStrokeStyle(size, "round")
-                    .moveTo(oldX, oldY)
-                    .lineTo(evt.stageX, evt.stageY);
-                stage.update();
-            }
-            oldX = evt.stageX;
-            oldY = evt.stageY;
-        })
 
-        stage.update();
-    }
 
-    function Sauvegarder() {
-        $("#image").attr('src', stage.toDataURL());
-    }
-</script>
 </head>
 
 <body onload="init();" onloadstart="init();">
 
-    Oups ! Une erreure est survenue...
+Oups ! Une erreure est survenue...
 
-    <script type="text/html" id="page-liste-paintgap">
-        <h1 class="titreApplication">Liste de paintgap</h1>
-        <ul class="listePaintGap" id="liste-paintgap"></ul>
-        <a href="#ajouter-paintgap/{ID}">Ajouter un PaintGap</a>
-    </script>
-
-    <!-- TODO: faire item-liste-paintgapx -->
-    <script type="text/html" id="item-liste-paintgap">
-        <li class='itemPaintGap'>
-            <a class='lienPaintGap' href='#paintgap/{ID}'>
-      {NOM}
-      </a>
+<!-- Page accueil / liste   -->
+<script type="text/html" id="pageListPaintGap">
+    <ul class="topnav" id="myTopnav">
+        <li><a class="active" href="#">Accueil</a></li>
+        <li><a href="#ajouter-paintgap/"> Ajouter un PaintGap</a></li>
+        <li class="icon">
+            <a href="javascript:void(0);" class="topbarjs" style="font-size:15px;" >☰</a>
         </li>
-    </script>
+    </ul>
+    <h1 class="titreApplication">Liste de paintgap</h1>
+    <ul class="listePaintGap" id="liste-paintgap"></ul>
 
-    <script type="text/html" id="page-paintgap">
-        <h1 id="paintgap-nom">{NOM}</h1>
-        <p id="paintgap-description">{DESCRIPTION}</p>
-        <!-- href modifier -->
-        <a href="#">Retour à la liste</a>
-        <a href="#modifier-paintgap/{ID}">Modifier une paintgap</a>
-    </script>
-
-    <script type="text/html" id="page-modifier-paintgap">
-        <form id="formulaire-modifier">
-
-            <label for="paintgap-nom">NOM</label>
-            <input type="text" id="paintgap-nom" value="{NOM}" />
+    <a href="#ajouter-paintgap/" class="boutonAjouterAccueil">Ajouter un PaintGap</a>
 
 
-            <label for="paintgap-description">DESCRIPTION</label>
-            <input id="paintgap-description" value="{DESCRIPTION}" />
+</script>
 
-            <input type="submit" value="modifier" />
-        </form>
-        <a href="#">Retour à la liste sans modifier</a>
-    </script>
+<!-- item de la liste -->
+<script type="text/html" id="itemListePaintGap">
 
-    <script type="text/html" id="page-ajouter-paintgap" onload="init();">
-        <button onclick="init();">Commencer à dessiner</button>
-        <canvas id="demoCanvas" width="500" height="500">
-          alternate content
+        <div class="container" >
+             <img src="{URI}" class="imageAccueil" width="125rm" >
+
+            <div class="nomImage">{NOM}</div>
+            <a class='modifierPaintGap' href="#paintgap/{ID}">Details</a>
+
+        </div>
+
+
+</script>
+
+<!-- Page detail -->
+<script type="text/html" id="pagePaintGap">
+
+    <ul class="topnav" id="myTopnav">
+        <li><a class="active" href="#">Accueil</a></li>
+        <li><a href="#ajouter-paintgap/"> Ajouter un PaintGap</a></li>
+        <li class="icon">
+            <a href="javascript:void(0);" class="topbarjs" style="font-size:15px;" >☰</a>
+        </li>
+    </ul>
+    <h1 class="titreDetails">Details du PaintGap</h1>
+
+    <h3 id="paintgapNom">{NOM}</h3>
+    <p id="paintgapDescription">{DESCRIPTION}</p>
+    <img class="imgDetail"src="{URI}" id="imageVue" />
+
+        <a href="#modifier-paintgap/{ID}" class="modifier"> Modifier </a>
+        <a href="#supprimer-paintgap/{ID}" class="supprimer"> Supprimer </a>
+    <a href="#" class="retourDetail"> Retour</a>
+
+</script>
+
+<!-- Page modifier -->
+<script type="text/html" id="pageModifierPaintgap">
+    <ul class="topnav" id="myTopnav">
+        <li><a class="active" href="#">Accueil</a></li>
+        <li><a href="#ajouter-paintgap/"> Ajouter un PaintGap</a></li>
+        <li class="icon">
+            <a href="javascript:void(0);" class="topbarjs" style="font-size:15px;" >☰</a>
+        </li>
+    </ul>
+    <h2 class="titreModifier"> Modifier un PaintGap</h2>
+    <form id="formulaireModifier" class="formModifier">
+
+        <label for="paintgapNom">NOM</label>
+        <input type="text" id="paintgapNom" value="{NOM}" />
+
+
+        <label for="paintgapDescription">DESCRIPTION</label>
+        <input id="paintgapDescription"  value="{DESCRIPTION}" />
+
+
+        <img id="paintGapUri" class="imgModifier" src="" id="image" />
+        <input type="submit" value="modifier" />
+
+    </form>
+    <a href="#" class="retour" >Retour à la liste sans modifier</a>
+</script>
+
+<!-- Page supprimer -->
+<script type="text/html" id="pageSupprimerPaintgap">
+	<h2 class="titreSupprimer"> Supprimer un PaintGap</h2>
+    <form id="formulaireSupprimer" class="formSupprimer">
+        <input type="submit" value="supprimer" />
+    </form>
+    <a href="#" class="retour" >Retour à la suppression</a>
+</script>
+
+
+<!-- Page d'ajout -->
+<script type="text/html" id="pageAjouterPaintgap">
+    <ul class="topnav" id="myTopnav">
+        <li><a class="active" href="#">Accueil</a></li>
+        <li><a href="#ajouter-paintgap/"> Ajouter un PaintGap</a></li>
+        <li class="icon">
+            <a href="javascript:void(0);" class="topbarjs" style="font-size:15px;" >☰</a>
+        </li>
+    </ul>
+    <h2 class="titreAjouter"> Ajouter un PaintGap</h2>
+    <form id="formulaireAjouter" class="formAjout">
+        <label for="paintgapNom">Nom</label>
+        <input type="text" id="paintgapNom" />
+        <label for="paintgapDescription">Description</label>
+        <textarea id="paintgapDescription"></textarea>
+        <p> cliquer pour commencer à dessiner : </p>
+        <canvas id="demoCanvas" class="espaceDessin" style="border:1px solid #000000;" onclick="init();" >
+            alternate content
         </canvas>
         <img src="" id="image" />
-        <form id="formulaire-ajouter">
-            <label for="paintgap-nom">Nom</label>
-            <input type="text" id="paintgap-nom" />
-            <label for="paintgap-description">Description</label>
-            <textarea id="paintgap-description"></textarea>
-            <input type="submit" value="Ajouter" />
-        </form>
-        <button onclick="Sauvegarder();">Sauvegarder</button>
-        <a href="#">Retour à la liste sans ajouter</a>
-    </script>
-
-
-
-    <form id="formulaire-ajouter">
-        <label for="paintgap-nom">Nom</label>
-        <input type="text" id="paintgap-nom" />
-
-
-        <label for="paintgap-description">Description</label>
-        <textarea id="paintgap-description"></textarea>
 
         <input type="submit" value="Ajouter" />
-        <button onclick="Sauvegarder();">Sauvegarder</button>
+
     </form>
-    <a href="#">Retour à la liste sans ajouter</a>
+
+    <a href="#" class="retour">Retour à la liste sans ajouter</a>
+</script>
 
 
-    <script src="modele/PaintGap.js"></script>
-    <script src="donnees/PaintGapDAO.js"></script>
-    <script src="vue/ModifierPaintGapVue.js"></script>
-    <script src="vue/AjouterPaintGapVue.js"></script>
-    <script src="vue/PaintGapVue.js"></script>
-    <script src="vue/ListePaintGapVue.js"></script>
-    <script src="application.js"></script>
+<script src="import/click.js"></script>
+<script src="import/script.js"></script>
+<script src="import/toolbar.js"></script>
+<script src="modele/PaintGap.js"></script>
+<script src="donnees/PaintGapDAO.js"></script>
+<script src="vue/ModifierPaintGapVue.js"></script>
+<script src="vue/SupprimerPaintGapVue.js"></script>
+<script src="vue/AjouterPaintGapVue.js"></script>
+<script src="vue/PaintGapVue.js"></script>
+<script src="vue/ListePaintGapVue.js"></script>
+<script src="application.js"></script>
 </body>
 
 </html>

@@ -21,7 +21,14 @@ var applicationPaintGap = {
             var paintgap = this.PaintGapDAO.trouverPaintGapParId(id_paintgap);
             this.ModifierPaintGapVue = new ModifierPaintGapVue(paintgap);
             this.ModifierPaintGapVue.afficher($.proxy(this.modifierPaintGap, this));
-        } else {
+        } else if (ancre.match(/^#supprimer-paintgap\/([0-9]+)/)) {
+
+            var trouvailles = ancre.match(/^#supprimer-paintgap\/([0-9]+)/);
+            var id_paintgap = trouvailles[1];
+            var paintgap = this.PaintGapDAO.trouverPaintGapParId(id_paintgap);
+            this.SupprimerPaintGapVue = new SupprimerPaintGapVue(paintgap);
+            this.SupprimerPaintGapVue.afficher($.proxy(this.supprimerPaintGap, this));
+        }else {
             var trouvailles = ancre.match(/^#paintgap\/([0-9]+)/);
             var id_paintgap = trouvailles[1];
             var paintgap = this.PaintGapDAO.trouverPaintGapParId(id_paintgap);
@@ -32,6 +39,10 @@ var applicationPaintGap = {
 
     sauvegarderNouveauPaintGap: function(paintgap) {
         this.PaintGapDAO.ajouterPaintGap(paintgap);
+    },
+
+    supprimerPaintGap: function(paintgap) {
+        this.PaintGapDAO.supprimerPaintGap(paintgap);
     },
 
     modifierPaintGap: function(paintgap) {

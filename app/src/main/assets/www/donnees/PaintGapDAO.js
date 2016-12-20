@@ -5,13 +5,13 @@ var PaintGapDAO = function()
   
 	this.initialiser = function()
 	{
-		var SQL_CREATION = "CREATE TABLE IF NOT EXISTS paintgap(id INTEGER PRIMARY KEY AUTOINCREMENT, nom VARCHAR(50),  description TEXT)";
+		var SQL_CREATION = "CREATE TABLE IF NOT EXISTS paintgapv2(id INTEGER PRIMARY KEY AUTOINCREMENT, nom VARCHAR(50),  description TEXT , uri MEDIUMTEXT)";
 		this.baseDeDonnees = window.openDatabase("ListeDepaintgaps", "1.0", "Liste De paintgaps", 200000);
 		
 		this.baseDeDonnees.transaction(
 			function(operation)
 			{
-				var SQL_CREATION = "CREATE TABLE IF NOT EXISTS paintgap(id INTEGER PRIMARY KEY AUTOINCREMENT, nom VARCHAR(50),  description TEXT)";
+				var SQL_CREATION = "CREATE TABLE IF NOT EXISTS paintgapv2(id INTEGER PRIMARY KEY AUTOINCREMENT, nom VARCHAR(50),  description TEXT  , uri MEDIUMTEXT) ";
         
 				operation.executeSql(SQL_CREATION);
 			},
@@ -26,8 +26,8 @@ var PaintGapDAO = function()
 			function(operation)
 			{
 				//alert("ajouterPaintGap");
-				var SQL_AJOUT = "INSERT INTO paintgap (nom, description) VALUES(?,?)";
-				var parametres = [paintgap.nom, paintgap.description];
+				var SQL_AJOUT = "INSERT INTO paintgapv2 (nom, description , uri) VALUES(?,?,?)";
+				var parametres = [paintgap.nom, paintgap.description , paintgap.uri];
 				operation.executeSql(SQL_AJOUT, parametres);
 			},
 			this.reagirErreur,
@@ -35,13 +35,29 @@ var PaintGapDAO = function()
 		);
 	}	
 
+  this.supprimerPaintGap = function(paintgap)
+  {
+    this.baseDeDonnees.transaction(
+      function(operation)
+      {
+        //alert("ajouterPaintGap");
+        var SQL_DELETE = "DELETE FROM paintgapv2 WHERE id = ?";
+        var parametres = [paintgap.id];
+        operation.executeSql(SQL_DELETE, parametres);
+      },
+      this.reagirErreur,
+      this.reagirSucces
+    );
+  } 
+
   this.modifierPaintGap = function(paintgap)
   {
     this.baseDeDonnees.transaction(
       function(operation)
       {
         //alert("ajouterPaintGap");
-        var SQL_UPDATE = "UPDATE paintgap SET nom = ?, description = ? where id=?";
+        //on peut par plus tard ajouter un uri a l'update :D 
+        var SQL_UPDATE = "UPDATE paintgapv2 SET nom = ?, description = ? where id=?";
         var parametres = [paintgap.nom, paintgap.description,paintgap.id];
         operation.executeSql(SQL_UPDATE, parametres);
       },
@@ -59,7 +75,7 @@ var PaintGapDAO = function()
       $.proxy(
         function(operation)
         {
-          var SQL_SELECTION = "SELECT * FROM paintgap";
+          var SQL_SELECTION = "SELECT * FROM paintgapv2";
           operation.executeSql(SQL_SELECTION, [], 
           $.proxy(
             function(operation, resultat)
@@ -72,7 +88,8 @@ var PaintGapDAO = function()
                   new PaintGap(
                     listerLesPaintGapnregistrementPaintGap.id,
                     listerLesPaintGapnregistrementPaintGap.nom, 
-                    listerLesPaintGapnregistrementPaintGap.description);
+                    listerLesPaintGapnregistrementPaintGap.description,
+                    listerLesPaintGapnregistrementPaintGap.uri);
                 this.listePaintGap[this.listePaintGap.length] = paintgap;
                         
               }
@@ -102,7 +119,7 @@ var PaintGapDAO = function()
 	this.reagirSucces = function()
 	{
 		console.log("SUCCES:SQL:");
-		alert("SUCCES:SQL:");
+		//alert("SUCCES:SQL:");
 	}
 
   this.initialiser();

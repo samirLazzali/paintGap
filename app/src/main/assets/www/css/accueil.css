@@ -1,0 +1,19 @@
+ <button class="boutonAjouter" onclick="window.location.href='#ajouter-paintgap/'">
+        Ajouter un PaintGap
+    </button>
+
+</script>
+
+<!-- item de la liste -->
+<script type="text/html" id="itemListePaintGap">
+
+        <div class="container" >
+             <img src="{URI}" class="image" width="125rm" >
+
+            <div class="nomImage">{NOM}</div>
+            <a class='modifierPaintGap' href="#paintgap/{ID}">Details</a>
+
+        </div>
+
+
+</script>

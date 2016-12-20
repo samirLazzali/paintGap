@@ -1,0 +1,72 @@
+*{
+	font-family:'Open Sans',Arial,sans-serif;
+
+}
+
+.imageAccueil{
+    height : 125px;
+}
+.container {
+
+   border : 1px solid blue;
+   float : left;
+   border: 3px solid #666666;
+   width: 100rm;
+   position: relative;
+   margin : 1rem;
+   background-color : #dddddd;
+    border-radius: 4px;
+
+}
+.nomImage {
+   float: left;
+   width : 94%;
+   position: absolute;
+   left: 0px;
+   top: 0px;
+   z-index: 1000;
+   background-color: #666666;
+   padding: 5px;
+   color: #FFFFFF;
+   font-weight: bold;
+   display : none;
+   text-align:center;
+}
+.modifierPaintGap{
+
+   border-radius : 20px;
+   float: left;
+   position: absolute;
+   width : 59%;
+   position: absolute;
+   left: 20%;
+   bottom : 5px;
+   z-index: 1000;
+   background-color: #666666;
+   padding: 3px;
+   color: #FFFFFF;
+   font-weight: bold;
+   display : none;
+   text-decoration: none;
+   text-align:center;
+   box-shadow: 3px 3px 5px #404040;
+}
+
+.boutonAjouterAccueil{
+    margin-right : 1.5rem;
+    margin-left : 1.5rem;
+    display: inline-block;
+    text-align:center;
+    width: 20rem;
+    color: white;
+    left:10%;
+     background-color: #0a6d16;
+    padding: 1rem 1rem;
+    margin: 1rem auto;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    border : 1px solid #0a6d16;
+    margin:0 auto;
+
+}
